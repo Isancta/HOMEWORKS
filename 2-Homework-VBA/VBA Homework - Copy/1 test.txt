@@ -1,0 +1,137 @@
+Sub Total_Stock_Volume()
+
+' Varibles for holding Tickers and their Total Volume around a year
+Dim Tickers As String
+Dim Total_Volume_Yr As Double
+
+' Count of Total Volume
+
+Total_Volume_Yr = 0
+
+'Loop Through all Tickers
+
+For i = 2 To 705714
+
+' Keep track of summary table location
+Dim Summary_Table As Integer
+Summary_Table = 2
+
+If Cells(i + 1, 1).Value = Cells(i, 1).Value Then
+Tickers = Cells(i, 1).Value
+
+Total_Volume_Yr = Total_Volume_Yr + Cells(i, 7).Value
+
+' Print Tickers and Total Volume in the summary table
+Tickers = Range("I" & Summary_Table).Value
+Total_Volume_Yr = Range("J" & Summary_Table).Value
+ 
+Else Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+Total_Volume_Yr = 0
+
+Total_Volume_Yr = Total_Volume_Yr + Cells(i, 7).Value
+
+End If
+
+Next i
+
+
+
+
+
+End Sub
+---------------------------------------------------------------------------------
+Sub Total_Stock_Volume()
+
+' Varibles for holding Tickers and their Total Volume around a year
+Dim Tickers As String
+Dim Total_Volume_Yr As Integer
+Total_Volume_Yr = 0
+
+'Loop Through all Tickers
+
+For i = 2 To 705714
+
+' Keep track of  Summary location
+
+Dim Summary_Table As Integer
+Summary_Table = 2
+
+If Cells(i + 1, 1) = Cells(i, 1).Value Then
+
+Tickers = Cells(i, 1).Value
+
+Total_Volume_Yr = Total_Volume_Yr + Cells(i, 7).Value
+
+' Print Tickers and Total Volume in the summary table
+
+Tickers = Range("I" & Summary_Table).Value
+Total_Volume_Yr = Range("J" & Summary_Table).Value
+
+Summary_Table = Summary_Table + 1
+
+
+Else
+' Reset Tickers Total_Volume_Yr
+
+Total_Volume_Yr = 0
+
+Tickers = Cells(i + 1, 1).Value
+Total_Volume_Yr = Total_Volume_Yr + Cells(i + 1, 7)
+
+End If
+
+Next i
+
+
+
+
+
+End Sub
+
+----------------------------------------------------------------------------------------------------
+Sub Total_Stock_Volume()
+
+' Varibles for holding Tickers and their Total Volume around a year
+Dim Tickers As String
+Dim Total_Volume As Integer
+Total_Volume = 0
+
+'Loop Through all Tickers
+
+For i = 2 To 705714
+
+' Keep track of  Summary location
+
+Dim Summary_Table As Integer
+Summary_Table = 2
+
+If Cells(i + 1, 1) <> Cells(i, 1).Value Then
+
+Tickers = Cells(i + 1, 1).Value
+
+Total_Volume = Total_Volume + Cells(i + 1, 7).Value
+
+' Print Tickers and Total Volume in the summary table
+
+Tickers = Range("I" & Summary_Table).Value
+Total_Volume = Range("J" & Summary_Table).Value
+
+
+
+Else
+' Reset Total_Volume_Yr
+
+Total_Volume = 0
+Tickers = Cells(i, 1).Value
+Total_Volume = Total_Volume + Cells(i, 7).Value
+
+Summary_Table = Summary_Table + 1
+
+
+    End If
+
+Next i
+
+
+End Sub
+
